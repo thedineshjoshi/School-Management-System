@@ -1,1 +1,29 @@
-<p>new-user works!</p>
+
+    <div class="container">
+      <h2>Registration</h2>
+      <form [formGroup]="register.newUserRegistrationForm" (ngSubmit)="addData">
+        <div class="input-field">
+          <input type="text" placeholder="First Name" required formControlName="FirstName">
+        </div>
+        <div class="input-field">
+          <input type="text" placeholder="Last Name" required formControlName="LastName">
+        </div>
+        <div class="input-field">
+          <input type="text" placeholder="Address" required formControlName="Address">
+        </div>
+        <div class="input-field">
+          <input type="email" placeholder="Email" required formControlNam="Email">
+        </div>
+        <div class="input-field">
+          <input type="tel" placeholder="Phone Number" required formControlName="PhoneNumber">
+        </div>
+        <div class="input-field">
+          <input type="text" placeholder="Username" required formControlName="UserName">
+        </div>
+        <div class="input-field">
+          <input type="password" placeholder="Password" required formControlName="Password">
+        </div>
+        <button type="submit" class="btn" (click)="addData()">Register</button>
+      </form>
+    </div>
+    

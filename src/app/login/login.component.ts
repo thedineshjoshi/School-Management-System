@@ -1,8 +1,11 @@
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Component } from '@angular/core';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, NgModel, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
-import { RouterLink } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
+import { _login } from '../Model/_login';
+import { ApiCallService } from '../service/api-call.service';
+import { CookieOptions, Router } from 'express';
 
 @Component({
   selector: 'app-login',
@@ -11,12 +14,29 @@ import { RouterLink } from '@angular/router';
     FormsModule,
     ReactiveFormsModule,
     RouterLink,
-    HttpClientModule
+    HttpClientModule,
+
 
   ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
+  LoginRequest:_login= new _login();
+  constructor(private apiService:ApiCallService,private router:Router)
+  {}
 
+  Login()
+  {
+    this.apiService.Login(this.LoginRequest).subscribe(
+      res=>{
+        
+        alert("Login Success");
+        // this.router.nav
+      },
+      err=>{
+        alert("Login Failed")
+      }
+    )
+  }
 }

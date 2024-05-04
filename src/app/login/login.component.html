@@ -3,12 +3,12 @@
       <h2>Login</h2>
       <form>
         <div class="input-field">
-          <input type="text" placeholder="Username" required>
+          <input type="text" placeholder="Username" name="Username" [(ngModel)]="LoginRequest.Username" required>
         </div>
         <div class="input-field">
-          <input type="password" placeholder="Password" required>
+          <input type="password" placeholder="Password" name="Password" [(ngModel)]="LoginRequest.Password"  required>
         </div>
-        <button type="submit" class="btn">Login</button>
+        <button type="submit" class="btn" (click)="Login()">Login</button>
         <button class="btn" style="background-color: blue; margin-top: 20px;" routerLink="/register">Register For New Account</button>
       </form>
     </div>

@@ -16,23 +16,26 @@ import { CookieOptions, Router } from 'express';
     RouterLink,
     HttpClientModule,
 
-
   ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
   LoginRequest:_login= new _login();
-  constructor(private apiService:ApiCallService,private router:Router)
+  constructor(private apiService:ApiCallService,private route:Router)
   {}
-
+// ngOnInIt()
+// {
+//   this.redirectopath();
+// }
   Login()
   {
     this.apiService.Login(this.LoginRequest).subscribe(
       res=>{
         
         alert("Login Success");
-        // this.router.nav
+        this.route.
+        
       },
       err=>{
         alert("Login Failed")
